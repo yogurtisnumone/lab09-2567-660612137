@@ -21,9 +21,12 @@ export default function Task({
     deleteTaskFunc(id);
   };
 
+  const toggleDoneBtnOnClick = () => {
+    toggleDoneTaskFunc(id);
+  };
+
   return (
     <div className="d-flex p-3 gap-2 align-items-center border-bottom">
-      {/* Display title with or without line-through based on completion status */}
       <span className={completed ? "text-decoration-line-through" : ""}>
         {title}
       </span>
@@ -36,6 +39,6 @@ export default function Task({
       <button className="btn btn-danger" onClick={deleteBtnOnClick}>
         Delete
       </button>
-     </div>
+    </div>
   );
 }
