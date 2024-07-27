@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function Home() {
   // Define the interface of task-item object
   interface TaskItem {
-    id: string;
+    id: any;
     title: string;
     completed: boolean;
   }
@@ -20,20 +20,20 @@ export default function Home() {
   const [tasks, setTasks] = useState<TaskItem[]>([]);
 
   // Define the function with proper type
-  const addTask = (newTaskTitle : string) => {
+  const addTask = (newTaskTitle : any) => {
     const newTask = { id: nanoid(), title: newTaskTitle, completed: false };
     const newTasks = [...tasks, newTask];
     setTasks(newTasks);
   };
 
   // Define the function with proper type
-  const deleteTask = (taskId : string) => {
+  const deleteTask = (taskId : any ) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
   };
 
   // Define the function with proper type
-  const toggleDoneTask = (taskId : string ) => {
+  const toggleDoneTask = (taskId : any ) => {
     //structuredClone will copy an array or an object "deeply"
     //So objects within an object will be copied too
     const newTasks = structuredClone(tasks);
@@ -41,12 +41,9 @@ export default function Home() {
     const task = newTasks.find((x) => x.id === taskId);
     if(task){
       task.completed = !task.completed;
+      setTasks(newTasks);
     }
-    setTasks(newTasks);
   };
-
-  const totalTasks = tasks.length;
-  const completedTasks = tasks.filter(task => task.completed).length;
 
   return (
     // Main container
@@ -57,7 +54,7 @@ export default function Home() {
       <div style={{ maxWidth: "400px" }} className="mx-auto">
         {/* Task summary */}
         <p className="text-center text-secondary fst-italic">
-          All ({totalTasks}) Done ({completedTasks})
+          All ({tasks.length}) Done ({tasks.filter((task) => task.completed).length})
         </p>
         {/* task input */}
         <TaskInput addTaskFunc={addTask} />

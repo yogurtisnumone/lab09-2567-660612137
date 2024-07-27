@@ -27,18 +27,9 @@ export default function Task({
 
   return (
     <div className="d-flex p-3 gap-2 align-items-center border-bottom">
-      <span className={completed ? "text-decoration-line-through" : ""}>
-        {title}
-      </span>
-      <button
-        className={`btn ${completed ? "btn-warning" : "btn-primary"}`} // Change button style based on completion status
-        onClick={toggleDoneBtnOnClick}
-      >
-        Done
-      </button>
-      <button className="btn btn-danger" onClick={deleteBtnOnClick}>
-        Delete
-      </button>
+      <span style={{ textDecoration: completed? 'line-through' : 'none' }}>{title}</span>
+      <button className="btn btn-success"onClick={toggleDoneBtnOnClick}>Done</button>
+      <button className="btn btn-danger" onClick={deleteBtnOnClick}>Delete</button>
     </div>
   );
 }
