@@ -31,7 +31,7 @@ export default function Task({
         {title}
       </span>
       <button
-        className={`btn ${completed ? "btn-warning" : "btn-success"}`}
+        className={`btn ${completed ? "btn-warning" : "btn-primary"}`} // Change button style based on completion status
         onClick={toggleDoneBtnOnClick}
       >
         Done
