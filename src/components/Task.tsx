@@ -34,7 +34,7 @@ export default function Task({
         className={`btn ${completed ? "btn-warning" : "btn-success"}`}
         onClick={toggleDoneBtnOnClick}
       >
-        {completed ? "Undo" : "Done"}
+        Done
       </button>
       <button className="btn btn-danger" onClick={deleteBtnOnClick}>
         Delete
