@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from "@components/Footer";
 import Header from "@components/Header";
 import Task from "@components/Task";
@@ -44,7 +46,7 @@ export default function Home() {
   };
 
 
-  
+
   return (
     // Main container
     <div className="container mx-auto">
