@@ -21,10 +21,6 @@ export default function Task({
     deleteTaskFunc(id);
   };
 
-  const toggleDoneBtnOnClick = () => {
-    toggleDoneTaskFunc(id);
-  };
-
   return (
     <div className="d-flex p-3 gap-2 align-items-center border-bottom">
       {/* Display title with or without line-through based on completion status */}
